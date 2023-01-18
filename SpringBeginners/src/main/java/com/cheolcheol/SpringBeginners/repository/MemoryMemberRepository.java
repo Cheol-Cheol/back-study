@@ -1,8 +1,6 @@
 package com.cheolcheol.SpringBeginners.repository;
 
 import com.cheolcheol.SpringBeginners.domain.Member;
-import org.springframework.boot.SpringApplication;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 

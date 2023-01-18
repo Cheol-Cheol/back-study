@@ -2,15 +2,12 @@ package com.cheolcheol.SpringBeginners.service;
 
 import com.cheolcheol.SpringBeginners.domain.Member;
 import com.cheolcheol.SpringBeginners.repository.MemoryMemberRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MemberServiceTest {
     // 테스트 할 객체 생성

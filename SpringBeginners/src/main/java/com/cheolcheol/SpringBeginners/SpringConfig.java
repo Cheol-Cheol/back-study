@@ -1,14 +1,10 @@
 package com.cheolcheol.SpringBeginners;
 
-import com.cheolcheol.SpringBeginners.aop.TimeTraceAop;
-import com.cheolcheol.SpringBeginners.repository.*;
+import com.cheolcheol.SpringBeginners.repository.MemberRepository;
 import com.cheolcheol.SpringBeginners.service.MemberService;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {

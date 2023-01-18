@@ -1,14 +1,12 @@
 package com.cheolcheol.SpringBeginners.repository;
 
 import com.cheolcheol.SpringBeginners.domain.Member;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();

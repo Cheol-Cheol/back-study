@@ -2,7 +2,6 @@ package com.cheolcheol.SpringBeginners.repository;
 
 import com.cheolcheol.SpringBeginners.domain.Member;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 import java.util.Optional;
