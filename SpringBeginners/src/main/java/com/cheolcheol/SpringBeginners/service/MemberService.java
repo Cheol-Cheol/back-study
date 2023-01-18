@@ -5,11 +5,13 @@ import com.cheolcheol.SpringBeginners.repository.MemberRepository;
 import com.cheolcheol.SpringBeginners.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
     // DI(의존성 주입) 작업, 이전의 new 연산자로 직접 생성하는 방식이 아닌, 외부에서 생성하도록 생성자를 생성한다.
     private final MemberRepository memberRepository;
