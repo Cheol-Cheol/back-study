@@ -1,5 +1,6 @@
 package com.cheolcheol.SpringBeginners;
 
+import com.cheolcheol.SpringBeginners.aop.TimeTraceAop;
 import com.cheolcheol.SpringBeginners.repository.*;
 import com.cheolcheol.SpringBeginners.service.MemberService;
 import jakarta.persistence.EntityManager;
@@ -43,4 +44,6 @@ public class SpringConfig {
         // return new JdbcTemplateMemberRepository(dataSource);
         // return new JpaMemberRepository(em);
     }*/
+
+
 }
