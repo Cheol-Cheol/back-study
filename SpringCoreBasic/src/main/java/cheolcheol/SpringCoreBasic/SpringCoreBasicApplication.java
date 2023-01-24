@@ -9,3 +9,4 @@ public class SpringCoreBasicApplication {
 		SpringApplication.run(SpringCoreBasicApplication.class, args);
 	}
 }
+

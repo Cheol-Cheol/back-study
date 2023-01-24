@@ -9,23 +9,28 @@ import cheolcheol.SpringCoreBasic.member.MemberServiceImpl;
 import cheolcheol.SpringCoreBasic.member.MemoryMemberRepository;
 import cheolcheol.SpringCoreBasic.order.OrderService;
 import cheolcheol.SpringCoreBasic.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-// 공연 기획자 역할, 의존관계는 여기서 해결한다. 즉, 구현 객체를 생성하고 연결시키자.
+@Configuration
 public class AppConfig {
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberRepository());
     }
 
-    private static MemberRepository memberRepository() {
+    @Bean
+    public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
+    @Bean
     public DiscountPolicy discountPolicy() {
-        // return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
 }
