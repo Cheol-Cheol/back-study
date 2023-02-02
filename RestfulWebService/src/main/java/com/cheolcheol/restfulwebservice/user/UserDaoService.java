@@ -10,20 +10,20 @@ import java.util.List;
 @Service
 public class UserDaoService {
     // 메모리 DB 사용 (DB는 나중에 연결할 예정)
-    private static List<User> users = new ArrayList<>();
+    private static List<UserDomain> users = new ArrayList<>();
     private static int userCount = 3;
 
     static {
-        users.add(new User(1, "cheolwon", new Date(), "pass1", "701010-1111111"));
-        users.add(new User(2, "john", new Date(), "pass2", "801010-1111111"));
-        users.add(new User(3, "tomas", new Date(), "pass3", "901010-1111111"));
+        users.add(new UserDomain(1, "cheolwon", new Date(), "pass1", "701010-1111111"));
+        users.add(new UserDomain(2, "john", new Date(), "pass2", "801010-1111111"));
+        users.add(new UserDomain(3, "tomas", new Date(), "pass3", "901010-1111111"));
     }
 
-    public List<User> findAll() {
+    public List<UserDomain> findAll() {
         return users;
     }
 
-    public User save(User user) {
+    public UserDomain save(UserDomain user) {
         if (user.getId() == null) {
             user.setId(++userCount);
         }
@@ -32,8 +32,8 @@ public class UserDaoService {
         return user;
     }
 
-    public User findOne(int id) {
-        for (User user : users) {
+    public UserDomain findOne(int id) {
+        for (UserDomain user : users) {
             if (user.getId() == id) {
                 return user;
             }
@@ -42,11 +42,11 @@ public class UserDaoService {
         return null;
     }
 
-    public User deleteById(int id) {
-        Iterator<User> iterator = users.iterator();
+    public UserDomain deleteById(int id) {
+        Iterator<UserDomain> iterator = users.iterator();
 
         while (iterator.hasNext()) {
-            User user = iterator.next();
+            UserDomain user = iterator.next();
 
             if (user.getId() == id) {
                 iterator.remove();

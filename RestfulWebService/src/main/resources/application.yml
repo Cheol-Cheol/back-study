@@ -9,10 +9,21 @@ spring:
   messages:
     basename: messages
     fallback-to-system-locale: false
-  security:
-    user:
-      name: username
-      password: passw0rd
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+  datasource:
+    url: jdbc:h2:mem:testdb
+  h2:
+    console:
+      enabled:true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    defer-datasource-initialization: true
 
 springdoc:
   swagger-ui:
@@ -35,9 +46,9 @@ springdoc:
 #    disabled: true
 
 management:
-  security:
-    enabled: false
   endpoints:
     web:
       exposure:
         include: "*"
+
+

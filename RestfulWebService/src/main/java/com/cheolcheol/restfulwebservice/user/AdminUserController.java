@@ -3,16 +3,11 @@ package com.cheolcheol.restfulwebservice.user;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/admin")
@@ -25,7 +20,7 @@ public class AdminUserController {
 
     @GetMapping("/users")
     public MappingJacksonValue retrieveAllUsers() {
-        List<User> users = service.findAll();
+        List<UserDomain> users = service.findAll();
 
         // filter
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter
@@ -45,7 +40,7 @@ public class AdminUserController {
     // @GetMapping(value = "/users/{id}", headers = "X-API-VERSION=1")
     @GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv1+json")
     public MappingJacksonValue retrieveUserV1(@PathVariable int id) {
-        User user = service.findOne(id);
+        UserDomain user = service.findOne(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
@@ -68,7 +63,7 @@ public class AdminUserController {
     // @GetMapping(value = "/users/{id}", headers = "X-API-VERSION=2")
     @GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv2+json")
     public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
-        User user = service.findOne(id);
+        UserDomain user = service.findOne(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
