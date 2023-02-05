@@ -1,8 +1,6 @@
 package com.cheolcheol.restfulwebservice.user;
 
-import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
