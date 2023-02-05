@@ -3,14 +3,10 @@ package com.cheolcheol.restfulwebservice.user;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
-import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -25,7 +21,7 @@ public class AdminUserController {
     // 전체 사용자 조회
     @GetMapping("/users")
     public MappingJacksonValue retrieveAllUsers() {
-        List<User> users = service.findAll();
+        List<UserDomain> users = service.findAll();
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter
                 .filterOutAllExcept("id", "name", "joinDate", "password");
@@ -45,7 +41,7 @@ public class AdminUserController {
     @GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv1+json")
     public MappingJacksonValue retrieveUserV1(@PathVariable int id) {
         // String형인 id가 int형으로 자동으로 변환된다.
-        User user = service.findOne(id);
+        UserDomain user = service.findOne(id);
 
         // Http Status Code 예외 핸들링
         if (user == null) {
@@ -69,7 +65,7 @@ public class AdminUserController {
     @GetMapping(value = "/users/{id}", produces = "application/vnd.company.appv2+json")
     public MappingJacksonValue retrieveUserV2(@PathVariable int id) {
         // String형인 id가 int형으로 자동으로 변환된다.
-        User user = service.findOne(id);
+        UserDomain user = service.findOne(id);
 
         // Http Status Code 예외 핸들링
         if (user == null) {

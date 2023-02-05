@@ -3,7 +3,6 @@ package com.cheolcheol.restfulwebservice.user;
 import jakarta.validation.Valid;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
-import org.springframework.hateoas.server.mvc.WebMvcLinkBuilderDsl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -23,15 +22,15 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public List<User> retrieveAllUsers() {
+    public List<UserDomain> retrieveAllUsers() {
         return service.findAll();
     }
 
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<EntityModel<User>> retrieveUser(@PathVariable int id) {
+    public ResponseEntity<EntityModel<UserDomain>> retrieveUser(@PathVariable int id) {
         // String형인 id가 int형으로 자동으로 변환된다.
-        User user = service.findOne(id);
+        UserDomain user = service.findOne(id);
 
         // Http Status Code 예외 핸들링
         if (user == null) {
@@ -47,8 +46,8 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
-        User savedUser = service.save(user);
+    public ResponseEntity<UserDomain> createUser(@Valid @RequestBody UserDomain user) {
+        UserDomain savedUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
@@ -60,7 +59,7 @@ public class UserController {
 
     @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable int id) {
-        User user = service.deleteById(id);
+        UserDomain user = service.deleteById(id);
 
         if (user == null) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
