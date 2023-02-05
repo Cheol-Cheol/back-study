@@ -8,3 +8,18 @@ logging:
 spring:
   messages:
     basename: messages
+  security:
+    user:
+      name: username
+      password: passw0rd
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

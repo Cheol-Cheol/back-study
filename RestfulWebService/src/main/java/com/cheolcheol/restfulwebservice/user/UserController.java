@@ -1,12 +1,18 @@
 package com.cheolcheol.restfulwebservice.user;
 
 import jakarta.validation.Valid;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilderDsl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 public class UserController {
@@ -23,7 +29,7 @@ public class UserController {
 
 
     @GetMapping("/users/{id}")
-    public User retrieveUser(@PathVariable int id) {
+    public ResponseEntity<EntityModel<User>> retrieveUser(@PathVariable int id) {
         // String형인 id가 int형으로 자동으로 변환된다.
         User user = service.findOne(id);
 
@@ -32,7 +38,12 @@ public class UserController {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
 
-        return user;
+        // HATEOAS 적용
+        EntityModel entityModel = EntityModel.of(user);
+
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+        entityModel.add(linkTo.withRel("all-users"));
+        return ResponseEntity.ok(entityModel);
     }
 
     @PostMapping("/users")
