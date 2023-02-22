@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44cf048b-8bbc-48a4-84c8-d3fde86409d9" name="Changes" comment="📍생애 최초 API 만들기">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/group/libraryapp/dto/user/request/UserUpdateRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+    <list default="true" id="44cf048b-8bbc-48a4-84c8-d3fde86409d9" name="Changes" comment="📍생애 최초 Database 조작하기">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/group/libraryapp/controller/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/group/libraryapp/controller/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/libraryapp/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/libraryapp/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/group/libraryapp/dto/user/reponse/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/group/libraryapp/dto/user/reponse/UserResponse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676378913601</updated>
       <workItem from="1676378914670" duration="2329000" />
-      <workItem from="1676871827226" duration="27084000" />
+      <workItem from="1676871827226" duration="28489000" />
     </task>
     <task id="LOCAL-00001" summary="🎉프로젝트 생성">
       <created>1676379243345</created>
@@ -106,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676888932933</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="📍생애 최초 Database 조작하기">
+      <created>1676965146125</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676965146125</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +126,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="프로젝트 생성" />
     <MESSAGE value="생애 최초 API 만들기" />
-    <option name="LAST_COMMIT_MESSAGE" value="생애 최초 API 만들기" />
+    <MESSAGE value="생애 최초 Database 조작하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="생애 최초 Database 조작하기" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
